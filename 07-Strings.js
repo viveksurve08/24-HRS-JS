@@ -150,5 +150,113 @@
 //? String.prototype.substr() it is deprecated ❌
 
 //? a: slice() extracts a part of a string and returns the extracted part in a new string.
+
+// 1: Javascript count positions from zero.
+// 2: slice() extracts up to but not including indexEnd.
+
 // Syntax:
-// slice(start, end)
+// slice(start, end);
+
+// Todo Javascript counts positions from zero.
+//? First position is 0. Second position is 1.
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+
+// let result = text.slice(6); // JavaScript, Welcome to our world best JavaScript course
+// let result = text.slice(6, 15); // JavaScrip
+// let result = text.slice(-6); // course
+// console.log(result);
+
+//? a: substring: Extracts a portion of the string based on starting and ending indices.
+
+//* camelCase is used to separate words, substring is not to be intended as Sub String but as Substring
+// Syntax:
+// substring(indexStart) // index starts with 0
+// substring(indexStart, indexEnd);
+
+//* substring() is similar to slice(). The difference is that start and end values less than 0 are treated as 0 in substring().
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+
+// let result = text.substring(12); // ript, Welcome to our world best JavaScript course
+// let result = text.substring(1, 4); // ell
+// let result = text.substring(-6); // Hello JavaScript, Welcome to our world best JavaScript course
+// console.log(result);
+
+//! Similarities
+
+// todo: In both the slice() and substring() methods, the end parameter indicates the ending index up to which the extraction occurs, but the character at the end index is excluded from the extracted substring.
+
+//* ===========================================
+//* Interview Question
+//* ===========================================
+
+//! What is the output for the following code?
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+// let result = text.slice(1);
+// let result = text.replace("H", "");
+// let result = text.substring(1);
+
+//? Optional
+// let result = text.replace("JavaScript", "VS");
+// let result = text.replaceAll("JavaScript", "VS");
+// console.log(result);
+
+//* ===========================================
+//* Extracting String Characters
+//* ===========================================
+
+//! Extracting String Characters
+// There are 3 methods for extracting string characters:
+
+//? The charAt(position) Method
+//? The charCodeAt(position) Method
+//? The at(position) Method
+
+//? chartAt(): The charAt() method returns the character at a specified index (position) in a string
+// 1: Javascript counts positions from zero.
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+// // let result = text.charAt(6); // J
+// let result = text.charAt(-6);
+// console.log(result);
+
+//? charCodeAt(): The charCodeAt() method returns the code of the character at a specified index in a string. The method returns a UTF-16 code (an integer between 0 and 65535).
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+// // let result = text.charCodeAt(6); // 74
+// let result = text.charCodeAt(-6); //NaN
+// console.log(result);
+
+//todo ES2022 introduced the string method at():
+//? The at() method returns the character at a specified index (position) in a string. The at() method returns the same as charAt().
+
+// let text = "Hello JavaScript, Welcome to our world best JavaScript course";
+// // let result = text.at(-6); // c
+// let result = text.at(8); // v
+// console.log(result);
+
+// Note
+// The at() method is a new addition to Javascript.
+// It allows the use of negative indexes while charAt() do not.
+// Now you can use myString.at(-2) instead of charAt(myString.length-2).
+
+//* ===========================================
+//* Replacing String Content:
+//* ===========================================
+
+//! Replacing String Content:
+// replace(): The replace method is used to replace a specified value with another value.
+// const str = "Hello, World!";
+// const newStr = str.replace("World", "JavaScript");
+// console.log(newStr); // Hello, JavaScript!
+
+//? Case-Insensitive Replacement: To perform a case-insensitive replacement, you can use the i flag in the regular expression.
+let originalString = "Hello, World! How are you, World?";
+let replacedString = originalString.replace(/world/i, "VS");
+console.log(replacedString);
+
+//* ===========================================
+//* Other Useful Methods:
+//* ===========================================
