@@ -253,10 +253,67 @@
 // console.log(newStr); // Hello, JavaScript!
 
 //? Case-Insensitive Replacement: To perform a case-insensitive replacement, you can use the i flag in the regular expression.
-let originalString = "Hello, World! How are you, World?";
-let replacedString = originalString.replace(/world/i, "VS");
-console.log(replacedString);
+// let originalString = "Hello, World! How are you, World?";
+// let replacedString = originalString.replace(/world/i, "VS");
+// console.log(replacedString);
 
 //* ===========================================
 //* Other Useful Methods:
 //* ===========================================
+
+//! Other Useful Methods:
+
+//? toupperCase and toLowerCase: Converts the string to uppercase or lowercase.
+
+// const str = "JavaScript";
+// console.log(str.toUpperCase()); // JAVASCRIPT
+// console.log(str.toLowerCase()); // javascript
+
+//? trim: Removes whitespace from both ends of the string.
+// const str = "    Hello, World!  ";
+// console.log(str.length); //19
+// console.log(str.trim()); // Hello, World!
+// let trimstr = str.trim();
+// console.log(trimstr.length); // 13
+
+//? split: Splits the string into an array of substrings based on a specified delimiter.
+// const str = "apple,orange,banana";
+// // let strArr = str.split(",");
+// // console.log(strArr); // [ 'apple', 'orange', 'banana' ]
+
+// let strArr = str.split(",").reverse().join();
+// console.log(strArr);
+
+//* ===========================================
+//* //! Interview Questions
+//* ===========================================
+
+//! 1: Write a Javascript function that prints the letters "a" through "z" in the console. You should use a loop to iterate through the letters and print each one on a new line.
+// console.log("a".charCodeAt(0)); // 97
+// console.log("z".charCodeAt(0)); // 122
+// console.log(String.fromCharCode(122));
+
+// for (let char = 97; char <= 122; char++) {
+//   console.log(`${String.fromCharCode(char)} CharCode: ${char}`);
+// }
+
+//! 2: Write a function to count the number of vowels in a string?
+
+// console.log(countVowels("Hello world"));
+
+//! 3: Write a function to check if all the vowels presents in a string or not?
+
+const checkAllVowelPresentOrNot = (str) => {
+  const vowels = "aeiou";
+  for (let char of vowels) {
+    // console.log(char);
+    // console.log(str.includes(char));
+
+    if (!str.includes(char)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(checkAllVowelPresentOrNot("My name is vivek @ surve"));
