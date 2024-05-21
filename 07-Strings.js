@@ -299,21 +299,53 @@
 
 //! 2: Write a function to count the number of vowels in a string?
 
-// console.log(countVowels("Hello world"));
+// const countVowels = (str) => {
+//   const vowels = "aeiou";
+//   let count = 0;
+//   for (let char of str) {
+//     console.log(char);
+//     // console.log(str.includes(char));
+
+//     if (vowels.includes(char)) {
+//       count++;
+//     }
+//   }
+//   return count;
+// };
+// console.log(countVowels("Hello a i o u world"));
 
 //! 3: Write a function to check if all the vowels presents in a string or not?
 
-const checkAllVowelPresentOrNot = (str) => {
-  const vowels = "aeiou";
-  for (let char of vowels) {
-    // console.log(char);
-    // console.log(str.includes(char));
+// const checkAllVowelPresentOrNot = (str) => {
+//   const vowels = "aeiou";
+//   for (let char of vowels) {
+//     // console.log(char);
+//     // console.log(str.includes(char));
 
-    if (!str.includes(char)) {
-      return false;
-    }
-  }
-  return true;
+//     if (!str.includes(char)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+
+// console.log(checkAllVowelPresentOrNot("My name is vivek @ surve")); // false
+
+//! 4: Write a Javascript function to check if the given string is Pangram or not?
+
+const pangramChecker = (str) => {
+  let inputArr = str.toLowerCase().split("");
+  // console.log(inputArr);
+  // console.log("z".charCodeAt());
+  const values = inputArr.filter(
+    (curElem) =>
+      curElem.charCodeAt() >= "a".charCodeAt() &&
+      curElem.charCodeAt() <= "z".charCodeAt()
+  );
+  // console.log(values);
+  // return [...new Set(values)].length === 26;
+
+  return new Set(values).size === 26;
 };
 
-console.log(checkAllVowelPresentOrNot("My name is vivek @ surve"));
+console.log(pangramChecker("The quick brown  fox jumps ove the lazy dog"));
