@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Searching</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="heading">DOM API</h1>
+      <ul class="list-of-nodes">
+        <li>1 node</li>
+        <li>2 node</li>
+        <li>3 node</li>
+        <!-- <li>4th node</li> -->
+        <li>4 node</li>
+        <li style="display: none">5 node</li>
+      </ul>
+    </div>
+
+    <div>
+      <h1>DOM API 2</h1>
+      <input type="text" />
+      <button>Click me</button>
+      <div class="value"></div>
+    </div>
+
+    <script>
+      //   let findElementById = document.getElementById("heading"); //✅
+      //   //   let findElementById = document.getElementById("#heading"); //❌
+      //   console.log(findElementById);
+
+      //   console.log(findElementById.innerHTML);
+      //   console.log(findElementById.innerText);
+      //   console.log(findElementById.textContent);
+
+      //   let findElementByClassName =
+      //     document.getElementsByClassName("list-of-nodes");
+      //   //   console.log(...findElementByClassName);
+
+      //   //   using for of loop
+      //   for (let elem of findElementByClassName) {
+      //     console.log(elem.innerHTML);
+      //     console.log(elem.innerText);
+      //     console.log(elem.textContent);
+      //   }
+
+      // The `innerHTML` property returns the complete content, including all HTML tags, inside the `ul` elements and their text content.
+
+      // Example using `innerText` : Prints text as it appears on screen, considering styling and excluding hidden text.
+
+      // Example using `textContent` : Print text as it is in the markup, including hidden text and without considering styling.
+
+      //   const getElementByTagName = document.getElementsByTagName("li");
+      // console.log(getElementByTagName);
+      //   console.log(...getElementByTagName);
+
+      //   for (let name of getElementByTagName) {
+      // console.log(name);
+      // console.log(name.innerHTML);
+      // console.log(name.innerText);
+      //   console.log(name.textContent);
+      //   }
+
+      //   const findElementByQuerySelector = document.querySelector("#heading");
+      //   console.log((findElementByQuerySelector.innerHTML = "JS Course"));
+
+      const findElementByQuerySelectorAll = document.querySelectorAll("li");
+      console.log(findElementByQuerySelectorAll);
+
+      findElementByQuerySelectorAll.forEach((curElem) => console.log(curElem));
+    </script>
+  </body>
+</html>
