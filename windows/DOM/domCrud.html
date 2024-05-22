@@ -15,16 +15,19 @@
         margin: 0;
         background-color: #f0f0f0;
       }
+
       div {
         background-color: #fff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
+
       h1 {
         margin-top: 0;
         font-size: 24px;
       }
+
       #inputfield {
         width: calc(100% - 22px);
         padding: 10px;
@@ -32,6 +35,7 @@
         border-radius: 4px;
         font-size: 16px;
       }
+
       .btn {
         display: inline-block;
         margin-top: 10px;
@@ -44,12 +48,40 @@
         cursor: pointer;
         transition: background-color 0.3s;
       }
+
       .btn:hover {
         background-color: #0056b3;
       }
+
       .todoListElem {
         margin-top: 20px;
       }
+
+      .todoItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+
+      .removeBtn {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .removeBtn:hover {
+        background-color: #c82333;
+      }
+
       .todoListElem p {
         padding: 10px;
         background-color: #f9f9f9;
@@ -59,6 +91,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
       }
+
       .todoListElem p:hover {
         background-color: #e9e9e9;
       }
@@ -82,13 +115,27 @@
       //   let todoFirst = document.getElementById("todoFirst");
 
       const addTodo = () => {
+        let todoText = inputElem.value.trim();
+        if (todoText === "") {
+          alert("Please enter a todo item.");
+          return;
+        }
         // console.log(inputElem.value);
         // todoFirst.textContent = inputElem.value;
 
         let pElem = document.createElement("p");
         pElem.textContent = inputElem.value;
-        // console.log(pElem);
-        todoElem.append(pElem);
+
+        let removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.className = "removeBtn";
+
+        let todoItem = document.createElement("div");
+        todoItem.className = "todoItem";
+        todoItem.append(pElem);
+        todoItem.append(removeBtn);
+
+        todoElem.append(todoItem);
         inputElem.value = "";
       };
 
@@ -97,9 +144,10 @@
       });
 
       todoElem.addEventListener("click", (event) => {
-        // console.log(event.target);
-        let currentElem = event.target;
-        currentElem.remove();
+        if (event.target.classList.contains("removeBtn")) {
+          let currentElem = event.target.parentElement;
+          currentElem.remove();
+        }
       });
     </script>
   </body>
