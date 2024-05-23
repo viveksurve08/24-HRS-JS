@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events In JS</title>
+  </head>
+  <body>
+    <!-- Start Inline Event  -->
+    <h1>Inline Event</h1>
+    <button onclick="alert('Welcome')">Greeting</button>
+    <button ondblclick="alert('Welcome JS Course')">Greeting Again</button>
+    <button onmouseover="alert('Welcome')">Greeting</button>
+    <!-- End Inline Event  -->
+
+    <!-- Start DOM Event Handler -->
+    <h1>DOM Event Handler</h1>
+    <button id="myBtn">Greeting</button>
+    <button id="myBtn1">Greeting Again</button>
+    <!-- End DOM Event Handler -->
+
+    <!-- addEventListener -->
+    <h1>AddEventListener</h1>
+    <button id="myBtn2">Greeting</button>
+    <button id="myBtn3">Greeting Again</button>
+
+    <script>
+      //   document.getElementById("myBtn").onclick = () => {
+      //     alert("Welcome");
+      //   };
+
+      //   document.getElementById("myBtn").onclick = function () {
+      //     alert("Welcome");
+      //   };
+
+      //   document.getElementById("myBtn1").onmouseover = function () {
+      //     alert("RadhaKrishn");
+      //   };
+
+      // addEventListener
+      document.getElementById("myBtn2").addEventListener("click", () => {
+        alert("Radhe Radhe 2");
+      });
+
+      document.getElementById("myBtn2").addEventListener("click", function () {
+        alert("Radhe Radhe 2");
+      });
+
+      document
+        .getElementById("myBtn3")
+        .addEventListener("mouseover", function () {
+          alert("Radhe Krishna");
+        });
+    </script>
+  </body>
+</html>

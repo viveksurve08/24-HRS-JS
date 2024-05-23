@@ -1,0 +1,65 @@
+<!--? "input" Event:  -->
+<!-- The *input* event is triggered whenever the value of an input, select, or textarea element changes. -->
+
+<!-- It is sensitive and fires immediately as the user typeing or making changes in the input field. -->
+
+<!--? "change" Event:  -->
+<!-- The *change* event is triggered when the value of an input, select, or textarea element changes and the element loses focus (i.e., the user clicks outside the input field or presses the Tab key to move to another element). -->
+<!-- It is less sensitive and captures the change only when the user finalizes their input and moves away from the input field. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Event</title>
+  </head>
+  <body>
+    <section>
+      <input
+        type="text"
+        id="myInput"
+        name="username"
+        placeholder="Type something..."
+        autocomplete="off"
+      />
+      <div class="output">
+        <p class="inputValue">Input value:</p>
+        <p class="inputName">Input name:</p>
+        <p class="inputType">Input Type:</p>
+        <p class="eventType">Event Type:</p>
+      </div>
+    </section>
+
+    <script>
+      const inputElem = document.getElementById("myInput");
+
+      const handleInputEvent = (event) => {
+        console.log(event);
+        // Display information about the input event in the console
+        console.log("Input value:", event.target.value);
+        console.log("Input name:", event.target.name);
+        console.log("Input type:", event.inputType);
+        console.log("Event type:", event.type);
+
+        document.querySelector(
+          ".inputValue"
+        ).textContent = `Input value: ${event.target.value}`;
+
+        document.querySelector(
+          ".inputName"
+        ).textContent = `Input Name: ${event.target.name}`;
+
+        document.querySelector(
+          ".inputType"
+        ).textContent = `Input Type: ${event.inputType}`;
+
+        document.querySelector(
+          ".eventType"
+        ).textContent = `Event Type: ${event.type}`;
+      };
+
+      inputElem.addEventListener("input", handleInputEvent);
+    </script>
+  </body>
+</html>
