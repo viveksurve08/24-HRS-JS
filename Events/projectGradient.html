@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Gradient</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+          to right top,
+          #051937,
+          #004d7a,
+          #008793,
+          #00bf72,
+          #a8eb12
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section {
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      button {
+        background-color: #f5ee53;
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: rgba(255, 255, 255, 1);
+      }
+
+      .copycode {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-family: "Courier New", Courier, monospace;
+        white-space: pre-wrap;
+        font-size: 12px;
+        color: white;
+        cursor: pointer;
+      }
+      h2 {
+        color: #fff;
+        font-size: 24px;
+        margin-top: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <button id="myButton">#f5aa29</button>
+        <button id="myButton2">#f5ee53</button>
+      </div>
+      <h2>Copy your color code here👇🏻</h2>
+      <div class="copycode">
+        background-image: linear-gradient(to right,rgb(92, 145, 229),rgb(152,
+        63, 198));
+      </div>
+    </section>
+    <script>
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+      let copyDiv = document.querySelector(".copycode");
+      let rgb1 = "#004773";
+      let rgb2 = "#54d542";
+      //todo to get the default color we can add the actual color here
+
+      const hexValues = () => {
+        let myHexValues = "0123456789abcdef";
+        let colors = "#";
+        for (let i = 0; i < 6; i++) {
+          colors = colors + myHexValues[Math.floor(Math.random() * 16)];
+        }
+        return colors;
+      };
+
+      const handleButton1 = () => {
+        rgb1 = hexValues();
+        console.log(rgb1);
+        btn1.innerText = rgb1;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1},${rgb2})`;
+      };
+
+      const handleButton2 = () => {
+        rgb2 = hexValues();
+        console.log(rgb2);
+        btn2.innerText = rgb2;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1},${rgb2})`;
+      };
+
+      const showCopyMessage = () => {
+        alert("Color code copied!");
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+
+      copyDiv.addEventListener("click", () => {
+        navigator.clipboard
+          .writeText(copyDiv.innerText)
+          .then(() => {
+            showCopyMessage();
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      });
+    </script>
+  </body>
+</html>
