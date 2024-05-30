@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #000000;
+      }
+      div {
+        text-align: center;
+      }
+      button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #addBtn {
+        background-color: rgb(207, 209, 105);
+        color: black;
+      }
+
+      #getBtn {
+        background-color: rgb(27, 190, 12);
+        color: black;
+      }
+
+      #removeBtn {
+        background-color: rgb(246, 57, 57);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="addBtn">Add Data to localStorage</button>
+      <button id="getBtn">Get Data from localStorage</button>
+      <button id="removeBtn">Delete Data from localStorage</button>
+    </div>
+    <script>
+      const studentBioData = {
+        firstName: "Carry",
+        lastName: "Minati",
+        age: 25,
+        gender: "Male",
+        grade: "A",
+        course: ["Math", "Science", "English"],
+        address: {
+          street: "123 Main ST",
+          city: "Pune",
+          state: "Maharashtra",
+          zipcode: "411052",
+        },
+      };
+
+      //   Add to Local Storage
+      const addTodoList = () => {
+        // localStorage.setItem("objectData", "studentBioData");
+        localStorage.setItem("objectData", JSON.stringify(studentBioData));
+      };
+
+      //  Get from Local Storage
+      const getTodoList = () => {
+        const retrievedStudentData = JSON.parse(
+          localStorage.getItem("objectData")
+        );
+
+        console.log("Retrived from Local Storage:", retrievedStudentData);
+      };
+
+      // Remove from Local Storage
+      const removeTodoList = () => {
+        const removeData = localStorage.getItem("objectData");
+        localStorage.removeItem("objectData");
+        // Verify removal
+        console.log("Data after removal:", removeData);
+        console.log("Data after removal:", localStorage.removeItem("objectData"););
+      };
+
+      document.getElementById("addBtn").addEventListener("click", () => {
+        addTodoList();
+      });
+
+      document.getElementById("getBtn").addEventListener("click", () => {
+        getTodoList();
+      });
+
+      document.getElementById("removeBtn").addEventListener("click", () => {
+        removeTodoList();
+      });
+    </script>
+  </body>
+</html>
