@@ -215,13 +215,13 @@
 
 //! Question: Write a function to calculate the difference in days between two given dates.
 
-const getDaysDifference = (d1, d2) => {
-  console.log(d2 - d1);
-};
+// const getDaysDifference = (d1, d2) => {
+//   let oneDay = 24 * 60 * 60 * 1000;
+//   let diff = Math.abs(d2 - d1);
+//   return Math.round(diff / oneDay);
+// };
 
-// Example usage:
-const date1 = new Date("2024-02-19");
-const date2 = new Date("2024-03-01");
-console.log(getDaysDifference(date1, date2)); //Output: 11 (difference in days)
-
-//3:23:54
+// // Example usage:
+// const date1 = new Date("2024-02-19");
+// const date2 = new Date("2024-03-01");
+// console.log(getDaysDifference(date1, date2)); //Output: 11 (difference in days)
