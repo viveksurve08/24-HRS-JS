@@ -38,3 +38,20 @@
 //* Here's a basic overview of how the call stacj works:
 
 //? During the execution of a Javascript program,
+
+//? The Javascript engine goes through the creation phase before executing any code. During the phase, it sets up the global execution context. The global execution context is the first one to be created and pushed onto the call stack. This happens when the Javascript engine starts executing the code.
+
+// todo Key activities during the creation pahse include:
+
+//? Creating the global object (window in browers, global in Node.js).
+//? Setting up the this reference.
+//? Creating the outer environment reference (which is null for global context).
+//? Creating the variable environment and allocating memory for global variables and functions.
+
+//? Before executing our code. Javascript engine scans the code and creates a property for each variable or function in the code. For variable, It reserves space for them in memory and sets an initial value of undefined, and for functions it also reserves space but sets an initial values as a reference to the actual function in memory. That's why we can call a function, but if we try to access a variable, we will get undefined.
+
+//? Setting up the scope chain, which initially contains only the global scope.
+
+//! Execution Phase:
+//? After the creation phase, the actual code execution takes place. This is when the Javascript engine goes through the code line by line.
+//? Variables are assigned their values, functions are executed, and the program's logic is carried out.
