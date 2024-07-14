@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+section {
+  padding: 20px;
+}
+
+#outer {
+  background-color: #ff9999;
+  border: 2px solid #ff6666;
+  padding: 20px;
+  margin: 10px;
+  color: #660000;
+  cursor: pointer;
+}
+
+#middle {
+  background-color: #99ccff;
+  border: 2px solid #6699ff;
+  padding: 20px;
+  margin: 10px;
+  color: #003366;
+  cursor: pointer;
+}
+
+#inner {
+  background-color: #99ff99;
+  border: 2px solid #66cc66;
+  padding: 20px;
+  margin: 10px;
+  color: #006600;
+  cursor: pointer;
+}

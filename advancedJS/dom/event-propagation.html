@@ -1,0 +1,95 @@
+<!-- *====================================== -->
+<!--* Event Propagation: -->
+<!-- *====================================== -->
+
+<!-- * Event propagation refers to the process of how events propagate or travel through the DOM (Document Object Model) hierarchy. -->
+<!-- * In JavaScript, there are two phase of event propagation: Capturing phase and bubbling phase.
+Understanding event propagation is crucial for managing and handling events in complex web applications. -->
+
+
+<!-- *====================================== -->
+<!--* Phases of Event Propagation: -->
+<!-- *====================================== -->
+
+<!-- ? Capturing Phase:
+The event starts from the root of the DOM and goes to the target element.
+Handler registered for the Capturing phase are executed. -->
+
+<!-- ? Target Phase:
+The event reaches the target element.
+The handler registered for the target phase is executed. -->
+
+<!-- ? Bubbling Phase:
+The event start from the target element and bubbles up to the root of the DOM.
+Handlers registered for the bubbling phase are executed. -->
+
+<!-- ? event.stopPropagation() -->
+<!-- The stopPropagation() methsod of the Event interface prevents further propagation of the curretn event in the capturing and bubbling phases. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div id="outer">
+            Outer
+            <div id="middle">
+                Middle
+                <div id="inner">Inner</div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const callOuter = () => {
+            console.table([
+                {
+                    Description: "I am e outer one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget
+                },
+            ]);
+        };
+
+
+        const callMiddle = () => {
+            console.table([
+                {
+                    Description: "I am e Middle one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ]);
+        };
+
+        const callInner = () => {
+            console.table([
+                {
+                    Description: "I am e Inner one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ]);
+            // event.stopPropagation();
+        };
+        // By default is the bubbling phase
+        // document.getElementById("outer").addEventListener("click", callOuter);
+        // document.getElementById("middle").addEventListener("click", callMiddle);
+        // document.getElementById("inner").addEventListener("click", callInner);
+
+        // TO achive event capturing, you can use the third parameter of the addEventListener method, which specifies whether the event should be captured during the capturing phase. Setting it to true will activate the capturing phase.
+
+        document.getElementById("outer").addEventListener("click", callOuter, true);
+        document.getElementById("middle").addEventListener("click", callMiddle, true);
+        document.getElementById("inner").addEventListener("click", callInner, true);
+    </script>
+
+</body>
+
+</html>
